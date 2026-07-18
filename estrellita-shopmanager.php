@@ -1619,7 +1619,7 @@ function silibas_order_is_completed($order_id) {
 
 	if (get_post_meta($order_id, '_last_completed', true) == '') {
 
-		$date_fmt = 'd/m/Y';
+		$date_fmt = 'm/d/Y';
 		$modified_time = get_post_modified_time( $date_fmt, null, $order_id );
 		update_post_meta($order_id, '_last_completed', $modified_time);
 
