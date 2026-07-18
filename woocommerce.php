@@ -2877,14 +2877,18 @@ add_action( 'add_meta_boxes', 'silibas_meta_fields_add_meta_box' );
 
 function sv_wc_csv_export_order_line_item_name( $line_item, $item, $product ) {
 
-	if ( $product->is_type( 'variation' ) ) {
+	if ( $product instanceof WC_Product && $product->is_type( 'variation' ) ) {
 
 		$product_name = $product->get_title();
 		$product_name_pieces = explode('-', $product_name);
 
 		$product_name = trim($product_name_pieces[0]);
 
-		$product_name = str_replace('National', '', $product_name);
+		// Preserve "National" for the PD K1 National product.
+		// Other products continue to follow the legacy export behavior.
+		if ( strpos( $product_name, 'PD K1 National' ) === false ) {
+			$product_name = str_replace( 'National', '', $product_name );
+		}
 
 		$var_desc = get_post_meta($product->get_id(), '_variation_description', true);
 		
