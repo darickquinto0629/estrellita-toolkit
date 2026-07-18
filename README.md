@@ -1,6 +1,6 @@
 # Estrellita Toolkit
 
-Private maintenance repository for the **Estrellita Toolkit** custom WordPress plugin.
+Maintenance repository for the **Estrellita Toolkit** custom WordPress plugin.
 
 ## Overview
 

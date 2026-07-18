@@ -2043,7 +2043,7 @@ function silibas_add_status_change_date_column_content( $column ) {
     	} else {
     		//if status completed, set meta to last modified
     		if (get_post_status($post->ID) == 'wc-completed') {
-    			update_post_meta($post->ID, '_last_completed', get_post_modified_time( 'M j, Y', false ));
+    			update_post_meta($post->ID, '_last_completed', get_post_modified_time( 'd/m/Y', false ));
     			echo date('M j, Y', strtotime(get_post_meta($post->ID, '_last_completed', true)));
     		}
     	}
